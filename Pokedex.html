@@ -12,10 +12,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;600&display=swap"
       rel="stylesheet" />
-    <link rel="stylesheet" href="Normalize/normalize.css" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="node_modules/normalize.css/normalize.css" />
+    <link rel="stylesheet" href="CSS/style.css" />
+    <!-- script -->
   </head>
   <body>
     <!-- Estara toda la pagina -->
@@ -92,12 +93,24 @@
             <figcaption class="nombre">Charizard</figcaption>
           </figure>
           <section class="habilidades">
-            <p class="hp"></p>
-            <p class="attack"></p>
-            <p class="defense"></p>
-            <p class="special-attack"></p>
-            <p class="special-defense"></p>
-            <p class="speed"></p>
+            <div class="estadisticas">
+              <p class="hp"></p>
+            </div>
+            <div class="estadisticas">
+              <p class="attack"></p>
+            </div>
+            <div class="estadisticas">
+              <p class="defense"></p>
+            </div>
+            <div class="estadisticas">
+              <p class="special-attack"></p>
+            </div>
+            <div class="estadisticas">
+              <p class="special-defense"></p>
+            </div>
+            <div class="estadisticas">
+              <p class="speed"></p>
+            </div>
           </section>
         </article>
       </div>
@@ -145,8 +158,6 @@
         </section>
       </article>
     </template>
-
-    <!-- Script -->
-    <script src="script.js"></script>
+    <script src="JavaScript/script.js" type="module"></script>
   </body>
 </html>

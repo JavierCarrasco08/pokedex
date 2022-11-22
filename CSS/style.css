@@ -1,0 +1,328 @@
+#buscador input[type=submit], .next, .prev {
+  font-family: "Poppins", sans-serif;
+  padding: 1rem 1.5rem;
+  background-color: #3d7c98;
+  border: none;
+  outline: none;
+  color: #f5f5f5;
+  font-weight: 600;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: background-color 0.5s ease-in-out;
+}
+#buscador input[type=submit]:hover, .next:hover, .prev:hover {
+  background-color: #323d48;
+}
+
+html {
+  font-family: "Poppins", sans-serif;
+}
+
+.Container {
+  min-height: 100vh;
+  width: 100%;
+  max-width: 1600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  background-image: url("../assets/images/Pokedex.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+.hero {
+  flex-grow: 0;
+  width: 100%;
+  height: 15vh;
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.hero .logotipo {
+  width: 4rem;
+  height: auto;
+}
+.hero .logo {
+  max-width: 100%;
+}
+
+#buscador {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  gap: 0.3rem;
+}
+#buscador #buscar {
+  font-family: "Poppins", sans-serif;
+  display: inline-block;
+  width: 70%;
+  padding: 1rem;
+  border: none;
+  outline: none;
+  border-radius: 2rem;
+  background-color: #f5f5f5;
+  color: #323d48;
+  font-weight: 600;
+}
+main {
+  width: 95%;
+  height: auto;
+  flex-grow: 2;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1rem;
+}
+main .container_pokemones {
+  position: relative;
+  flex-grow: 2;
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.5rem;
+}
+main .information-pokedex {
+  width: 35%;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 2rem;
+  background-image: url("../assets/images/Mundo_Pokemon.jpg");
+  background-size: cover;
+  background-position: center center;
+  color: #f5f5f5;
+  font-weight: 700;
+  gap: 0.5rem;
+}
+main .information-pokedex img {
+  width: 4rem;
+  height: auto;
+}
+
+.loader {
+  position: absolute;
+  left: 40%;
+  top: 30%;
+  width: 20%;
+  min-width: 100px;
+  height: auto;
+  height: auto;
+  display: none;
+}
+.loader .load {
+  max-width: 100%;
+  height: auto;
+  animation: loader 1s linear infinite;
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.block {
+  display: block;
+}
+
+.container_card_pokemon {
+  height: 25vh;
+  width: 100%;
+  border-radius: 1rem;
+  background-image: url("../assets/images/Pokeball.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  cursor: pointer;
+}
+.container_card_pokemon .nombre {
+  text-transform: capitalize;
+  font-size: clamp(1rem, 2vw, 2.5rem);
+  background-color: rgba(50, 61, 72, 0.5);
+  border-radius: 1rem;
+  box-shadow: 0px 0px 10px 5px rgba(50, 61, 72, 0.5);
+  padding: 0.5rem;
+  color: #f5f5f5;
+}
+.container_card_pokemon figure {
+  max-width: 80%;
+}
+.container_card_pokemon img {
+  width: 100%;
+  height: auto;
+}
+
+.container_modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-image: linear-gradient(rgba(50, 61, 72, 0.7), #3d7c98);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s linear;
+}
+
+.container_modal.isActive {
+  visibility: visible;
+  opacity: 1;
+}
+.container_modal.isActive .modal {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal {
+  height: 70vh;
+  width: clamp(300px, 50vw, 900px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  background-image: url("../assets/images/Pokeball.png"), linear-gradient(#f5f5f5, #f5f5f5);
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  color: #323d48;
+  border-radius: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-in-out 1s;
+}
+
+.exit {
+  position: absolute;
+  z-index: 10;
+  top: 5vh;
+  right: 5vw;
+  cursor: pointer;
+}
+.exit img {
+  width: 4rem;
+  height: auto;
+}
+
+.fo {
+  flex-grow: 0;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: #323d48;
+  text-align: center;
+  gap: 0.5rem;
+}
+.fo .agradecimientos {
+  width: 60%;
+  min-width: 200px;
+  color: #f5f5f5;
+  font-weight: 600;
+  text-align: center;
+}
+.fo .logotipo {
+  width: 100px;
+  min-width: 70px;
+  height: auto;
+  padding: 1rem;
+  background-color: #f5f5f5;
+  border-radius: 50%;
+}
+.fo .logotipo img {
+  width: 100%;
+}
+.fo .enlace {
+  display: inline-block;
+  width: 70px;
+  height: auto;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 100%;
+}
+.fo .enlace:hover {
+  animation: rotate 1s linear;
+}
+.fo .enlace img {
+  max-width: 100%;
+  height: auto;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(80deg);
+  }
+  75% {
+    transform: rotate(0deg);
+  }
+  90% {
+    transform: rotate(-80deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@media screen and (max-width: 1035px) {
+  main {
+    flex-direction: column-reverse;
+  }
+  main .container_pokemones {
+    min-height: 30vh;
+  }
+  main .information-pokedex {
+    width: 100%;
+    height: 40%;
+  }
+}
+@media screen and (max-width: 460px) {
+  .hero {
+    flex-direction: column;
+    height: auto;
+  }
+  #buscador {
+    width: 100%;
+  }
+  .fo {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+@media screen and (max-width: 700px) {
+  .modal {
+    width: 80vw;
+  }
+}
+.buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/*# sourceMappingURL=style.css.map */
