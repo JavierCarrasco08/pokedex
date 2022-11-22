@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokedex</title>
+    <link
+      rel="shortcut icon"
+      href="assets/images/icono.png"
+      type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700;900&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="Normalize/normalize.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Estara toda la pagina -->
+    <section class="Container">
+      <!-- Cabecera para buscar los pokemones -->
+      <header class="hero">
+        <figure class="logotipo">
+          <img
+            src="assets/images/logo.png"
+            alt="Logotipo Pokedex"
+            class="logo" />
+        </figure>
+        <form id="buscador">
+          <input
+            type="search"
+            name="buscar"
+            id="buscar"
+            placeholder="Search"
+            autocomplete="off" />
+          <input type="submit" value="Search" />
+        </form>
+      </header>
+      <!-- Botones -->
+      <div class="buttons"></div>
+      <!-- Aqui estara la informacion sobre la Pokedex y los pokemones -->
+      <main>
+        <section class="container_pokemones">
+          <div class="loader">
+            <img src="assets/images/icono.png" alt="loader" class="load" />
+          </div>
+        </section>
+        <aside class="information-pokedex">
+          <h2 class="information_title">Pokedex</h2>
+          <p class="information_paragrah">
+            Pokédex6 (ポケモン図鑑 Pokémon Zukan en japonés, o Pokémon Dexter,
+            también llamado Indexador Pokémon), en el mundo Pokémon es una
+            enciclopedia virtual portátil de alta tecnología que los
+            entrenadores Pokémon llevan consigo para registrar las fichas de
+            todas las diversas especies Pokémon con las que se encuentran
+            durante su viaje como entrenadores. En general, cuando se cumplen
+            ciertos requisitos, la capacidad de la Pokédex se puede aumentar
+            permitiendo almacenar datos de otros Pokémon, que no son comunes,
+            como los legendarios y Pokémon que no son originarios de esa región.
+            A dicha Pokédex "ampliada" se la conoce como Pokédex Nacional. Según
+            el episodio EP068 de la primera temporada en el anime, fue creada
+            por el profesor Westwood V; sin embargo, en los videojuegos, el
+            creador es el profesor Oak. Este contenido proviene de wikidex.net,
+            y debe darse atribución a sus autores, tal como especifica la
+            licencia. Se prohíbe su uso a PlagioDex (el wiki de FANDOOM), por
+            copiar reiteradamente sin dar atribución
+          </p>
+          <figure class="logotipo">
+            <img
+              src="assets/images/logo.png"
+              alt="Logotipo Pokedex"
+              class="logo" />
+          </figure>
+        </aside>
+      </main>
+      <!-- Este es el modal -->
+      <div class="container_modal">
+        <div class="exit">
+          <img
+            src="assets/images/exit.svg"
+            alt="SVG de exit"
+            class="exit_svg" />
+        </div>
+        <article class="modal">
+          <header>
+            <p class="type"></p>
+          </header>
+          <figure>
+            <img class="image" alt="Silueta de pokemon" />
+            <figcaption class="nombre">Charizard</figcaption>
+          </figure>
+          <section class="habilidades">
+            <p class="hp"></p>
+            <p class="attack"></p>
+            <p class="defense"></p>
+            <p class="special-attack"></p>
+            <p class="special-defense"></p>
+            <p class="speed"></p>
+          </section>
+        </article>
+      </div>
+      <!-- footer -->
+      <footer class="fo">
+        <figure class="logotipo">
+          <img
+            src="assets/images/logo.png"
+            alt="Logotipo Pokedex"
+            class="logo" />
+        </figure>
+        <article class="agradecimientos">
+          <p class="agradecimientos_paragrah">
+            Gracias por tomarse la molestia y su tiempo en ver mi primer
+            proyecto, es algo muy sencillo donde solo uso la Api que me brinda
+            PokeApi y nuestro maravillose lenguaje de la web Vanilla JavaScript
+          </p>
+        </article>
+        <div class="redes">
+          <a
+            href="https://www.facebook.com/profile.php?id=100011023665774"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="enlace"
+            ><img src="assets/images/Icono-facebook.png" alt="icon_facebook"
+          /></a>
+          <a
+            href="https://www.instagram.com/javier_carrasco08/?hl=es-la"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="enlace"
+            ><img src="assets/images/icono-instagram.png" alt="icon_instagram"
+          /></a>
+        </div>
+      </footer>
+    </section>
+    <!-- Template Ejemplo a seguir de las cartas -->
+    <template id="template">
+      <article class="container_card_pokemon">
+        <figure class="card_img-pokemon">
+          <img class="img_pokemon" />
+        </figure>
+        <section class="caracteristicas">
+          <h2 class="nombre"></h2>
+        </section>
+      </article>
+    </template>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+  </body>
+</html>
