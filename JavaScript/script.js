@@ -80,6 +80,12 @@ d.addEventListener("click", async (e) => {
   if (e.target.matches(".exit *")) {
     const $modal = d.querySelector(".container_modal");
     $modal.classList.remove("isActive");
+    $modal.querySelectorAll(".progressive").forEach((e) => {
+      e.classList.remove("clip");
+    });
+    $modal.querySelectorAll(".estadisticas span").forEach((e) => {
+      e.classList.remove("opacity");
+    });
   }
   if (e.target.matches(".container_card_pokemon *")) {
     const $modal = d.querySelector(".container_modal");
@@ -109,19 +115,35 @@ d.addEventListener("click", async (e) => {
     $modal.querySelector(".nombre").textContent = json2.name;
     all.forEach((e, index) => {
       e.firstElementChild.textContent = json2.stats[index].stat.name;
-      // e.lastElementChild.classList.add(`w:${json2.stats[index]["base_stat"]}%`);
-      e.lastElementChild.style.width = `${
-        json2.stats[index]["base_stat"] / 5
+      e.firstElementChild.nextElementSibling.style.width = `${
+        json2.stats[index]["base_stat"] / 2.5
       }%`;
+      e.lastElementChild.textContent = json2.stats[index]["base_stat"];
     });
     $modal.classList.add("isActive");
+
+    setTimeout(() => {
+      $modal.querySelectorAll(".progressive").forEach((e) => {
+        e.classList.add("clip");
+      });
+      $modal.querySelectorAll(".estadisticas span").forEach((e) => {
+        e.classList.add("opacity");
+      });
+    }, 1500);
   }
 });
 
 w.addEventListener("keyup", (e) => {
   if (e.key === "Escape") {
     const $modal = d.querySelector(".container_modal");
+    $modal.querySelectorAll(".progressive").forEach((e) => {
+      console.log(e);
+      e.classList.remove("clip");
+    });
     $modal.classList.remove("isActive");
+    $modal.querySelectorAll(".estadisticas span").forEach((e) => {
+      e.classList.remove("opacity");
+    });
   }
 });
 
