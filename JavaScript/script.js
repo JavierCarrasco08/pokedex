@@ -94,36 +94,26 @@ d.addEventListener("click", async (e) => {
       $modal.classList.add("isActive");
       return false;
     }
-    console.log(json2);
-    $modal.querySelector(".type").textContent = json2.types[0]["type"]["name"];
-    $modal.querySelector(".type").textContent += json2.types[1]
-      ? `/${json2.types[1]["type"]["name"]}.`
-      : ".";
+    $modal.querySelector(".type").innerHTML = "";
+    json2.types.forEach((e) => {
+      const $span = `<span class="${e.type.name}">${e.type.name}</span>`;
+      $modal.querySelector(".type").innerHTML += $span;
+    });
     $modal
       .querySelector(".image")
       .setAttribute(
         "src",
         `${json2.sprites.other["official-artwork"]["front_default"]}`
       );
+    const all = $modal.querySelectorAll(".estadisticas");
     $modal.querySelector(".nombre").textContent = json2.name;
-    $modal.querySelector(
-      ".hp"
-    ).textContent = `Hp: ${json2.stats[0]["base_stat"]}`;
-    $modal.querySelector(
-      ".attack"
-    ).textContent = `Attack: ${json2.stats[1]["base_stat"]}`;
-    $modal.querySelector(
-      ".defense"
-    ).textContent = `Defense: ${json2.stats[2]["base_stat"]}`;
-    $modal.querySelector(
-      ".special-attack"
-    ).textContent = `Special-attack: ${json2.stats[3]["base_stat"]}`;
-    $modal.querySelector(
-      ".special-defense"
-    ).textContent = `Special-defense: ${json2.stats[4]["base_stat"]}`;
-    $modal.querySelector(
-      ".speed"
-    ).textContent = `Speed: ${json2.stats[5]["base_stat"]}`;
+    all.forEach((e, index) => {
+      e.firstElementChild.textContent = json2.stats[index].stat.name;
+      // e.lastElementChild.classList.add(`w:${json2.stats[index]["base_stat"]}%`);
+      e.lastElementChild.style.width = `${
+        json2.stats[index]["base_stat"] / 2.5
+      }%`;
+    });
     $modal.classList.add("isActive");
   }
 });

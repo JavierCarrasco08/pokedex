@@ -5,7 +5,7 @@ export const Pokedex = async (pokemones) => {
     $sectionPokemon = d.querySelector(".container_pokemones"),
     $containerButtons = d.querySelector(".buttons"),
     fragmen = d.createDocumentFragment();
-
+  let set;
   try {
     const $loader = d.querySelector(".loader");
     $loader.classList.add("block");
@@ -69,12 +69,14 @@ export const Pokedex = async (pokemones) => {
         .setAttribute(
           "src",
           reslt.sprites.other["official-artwork"]["front_default"] === null
-            ? `${reslt.sprites.other["dream_world"]["front_default"]}`
+            ? `${reslt.sprites["front_default"]}`
             : `${reslt.sprites.other["official-artwork"]["front_default"]}`
         );
       let $clone = d.importNode($template, true);
       fragmen.appendChild($clone);
     }
+    // let set = new Set();
+    console.log(set);
     $sectionPokemon.appendChild(fragmen);
 
     $loader.classList.remove("block");

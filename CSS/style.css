@@ -14,6 +14,78 @@
   background-color: #323d48;
 }
 
+.steel {
+  background-color: rgba(211, 211, 211, 0.7);
+}
+
+.water {
+  background-color: rgba(65, 105, 225, 0.7);
+}
+
+.fire {
+  background-color: rgba(220, 20, 60, 0.7);
+}
+
+.grass {
+  background-color: rgba(0, 255, 0, 0.7);
+}
+
+.poison {
+  background-color: rgba(147, 112, 216, 0.7);
+}
+
+.bug {
+  background-color: rgba(153, 205, 50, 0.6);
+}
+
+.ice {
+  background-color: rgba(127, 255, 212, 0.7);
+}
+
+.dragon {
+  background-color: rgba(123, 104, 238, 0.7);
+}
+
+.electric {
+  background-color: rgba(255, 255, 1, 0.6);
+}
+
+.ghost {
+  background-color: rgba(128, 0, 128, 0.7);
+}
+
+.fairy {
+  background-color: rgba(255, 136, 238, 0.7);
+}
+
+.fighting {
+  background-color: rgba(178, 34, 34, 0.7);
+}
+
+.normal {
+  background-color: rgba(230, 230, 250, 0.7);
+}
+
+.psychic {
+  background-color: rgba(238, 130, 238, 0.6);
+}
+
+.rock {
+  background-color: rgba(205, 134, 63, 0.7);
+}
+
+.dark {
+  background-color: rgba(112, 128, 144, 0.7);
+}
+
+.ground {
+  background-color: rgba(222, 184, 135, 0.7);
+}
+
+.flying {
+  background-color: rgba(150, 150, 150, 0.7);
+}
+
 html {
   font-family: "Poppins", sans-serif;
 }
@@ -192,8 +264,10 @@ main .information-pokedex img {
 }
 
 .modal {
-  height: 70vh;
-  width: clamp(300px, 50vw, 900px);
+  min-height: 70vh;
+  width: 50vw;
+  min-width: 300px;
+  max-width: 900px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -208,6 +282,62 @@ main .information-pokedex img {
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.5s ease-in-out 1s;
+}
+.modal header {
+  margin-top: 1.5rem;
+  width: 40%;
+  min-width: 100px;
+}
+.modal img {
+  max-width: 100%;
+}
+.modal .type {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 0.2rem;
+  color: #f5f5f5;
+  width: 100%;
+  font-size: 1.5rem;
+  border-radius: 10px;
+}
+.modal .type span {
+  padding: 0.5rem 1.5rem;
+  border-radius: 1.5rem;
+  font-weight: 600;
+}
+.modal .nombre {
+  font-size: 2rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  background-color: rgba(237, 219, 221, 0.8588235294);
+  width: 200px;
+  margin: 0 auto;
+}
+.modal .habilidades {
+  padding: 1rem 0.2rem;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background-color: #eddbdd;
+  border-radius: 1rem;
+  margin: 1rem 0;
+}
+.modal .estadisticas {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  font-size: 0.7rem;
+}
+.modal .progressive {
+  height: 0.5rem;
+  width: 100px;
+  padding: 0 1rem;
+  border-radius: 1rem;
+  background-color: blue;
 }
 
 .exit {
@@ -313,6 +443,17 @@ main .information-pokedex img {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+  }
+}
+@media screen and (max-width: 350px) {
+  .modal fle .type {
+    flex-direction: column;
+    gap: 1rem;
+    width: 120%;
+  }
+  .modal fle .type p {
+    width: 100%;
+    text-align: center;
   }
 }
 @media screen and (max-width: 700px) {
