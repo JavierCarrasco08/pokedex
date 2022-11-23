@@ -16,9 +16,9 @@ const buscador = async (buscador) => {
     const $loader = d.querySelector(".loader");
     $loader.classList.add("block");
     const buscarFragment = d.createDocumentFragment();
-    // if (buscador === "") {
-    //   return Pokedex("https://pokeapi.co/api/v2/pokemon");
-    // }
+    if (buscador === "") {
+      return Pokedex("https://pokeapi.co/api/v2/pokemon");
+    }
     let buscar = await fetch(
         `https://pokeapi.co/api/v2/pokemon/${buscador.toLowerCase()}`
       ),
@@ -111,7 +111,7 @@ d.addEventListener("click", async (e) => {
       e.firstElementChild.textContent = json2.stats[index].stat.name;
       // e.lastElementChild.classList.add(`w:${json2.stats[index]["base_stat"]}%`);
       e.lastElementChild.style.width = `${
-        json2.stats[index]["base_stat"] / 2.5
+        json2.stats[index]["base_stat"] / 5
       }%`;
     });
     $modal.classList.add("isActive");
