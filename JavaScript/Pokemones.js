@@ -67,7 +67,7 @@ export const Pokedex = async (pokemones) => {
         .setAttribute(
           "src",
           reslt.sprites.other["official-artwork"]["front_default"] === null
-            ? `${reslt.sprites.versions["generation-v"]["black-white"]["front_default"]}`
+            ? `assets/images/question.svg`
             : `${reslt.sprites.other["official-artwork"]["front_default"]}`
         );
       $template.querySelector(".img_pokemon").alt = reslt.name;

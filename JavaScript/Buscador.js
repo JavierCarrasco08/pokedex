@@ -34,7 +34,7 @@ export const buscador = async (buscador) => {
       .setAttribute(
         "src",
         res.sprites.other["official-artwork"]["front_default"] === null
-          ? `${res.sprites.versions["generation-v"]["black-white"]["front_default"]}`
+          ? `assets/images/question.svg`
           : `${res.sprites.other["official-artwork"]["front_default"]}`
       );
     let $clone = d.importNode($template, true);

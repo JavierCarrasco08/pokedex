@@ -80,7 +80,9 @@ d.addEventListener("click", async (e) => {
       .querySelector(".image")
       .setAttribute(
         "src",
-        `${json2.sprites.other["official-artwork"]["front_default"]}`
+        json2.sprites.other["official-artwork"]["front_default"] === null
+          ? `assets/images/question.svg`
+          : `${json2.sprites.other["official-artwork"]["front_default"]}`
       );
     const all = $modal.querySelectorAll(".estadisticas");
     $modal.querySelector(".nombre").textContent = json2.name;
