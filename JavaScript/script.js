@@ -1,3 +1,4 @@
+import { buscador } from "./Buscador.js";
 import { Pokedex } from "./Pokemones.js";
 
 const d = document,
@@ -10,48 +11,7 @@ const d = document,
 d.addEventListener("DOMContentLoaded", async () => {
   Pokedex("https://pokeapi.co/api/v2/pokemon");
 });
-// Buscador
-const buscador = async (buscador) => {
-  try {
-    const $loader = d.querySelector(".loader");
-    $loader.classList.add("block");
-    const buscarFragment = d.createDocumentFragment();
-    if (buscador === "") {
-      return Pokedex("https://pokeapi.co/api/v2/pokemon");
-    }
-    let buscar = await fetch(
-        `https://pokeapi.co/api/v2/pokemon/${buscador.toLowerCase()}`
-      ),
-      res = await buscar.json();
-
-    if (!buscar.ok) throw buscar;
-    $loader.classList.remove("block");
-    $template.querySelector(".container_card_pokemon").dataset.id = res.name;
-    $template.querySelector(".nombre").textContent = res.species.name;
-    $template
-      .querySelector(".img_pokemon")
-      .setAttribute(
-        "src",
-        `${res.sprites.other["official-artwork"]["front_default"]}`
-      );
-    console.log(res);
-    let $clone = d.importNode($template, true);
-    buscarFragment.appendChild($clone);
-    $sectionPokemon.appendChild(buscarFragment);
-  } catch (err) {
-    const $loader = d.querySelector(".loader");
-    $loader.classList.remove("block");
-    $template
-      .querySelector(".img_pokemon")
-      .setAttribute("src", "assets/images/exit.svg");
-    $template.querySelector(".nombre").textContent =
-      "Lo sentimos este Pokemon aun no se encuentra!";
-    let $advertencia = d.importNode($template, true);
-    $sectionPokemon.appendChild($advertencia);
-  }
-};
 // Eventos
-
 d.addEventListener("submit", (e) => {
   e.preventDefault();
   if (e.target.matches("#buscador")) {
@@ -65,17 +25,28 @@ d.addEventListener("submit", (e) => {
 d.addEventListener("click", async (e) => {
   if (e.target.matches(".next")) {
     e.target.disabled = true;
+    if (document.querySelector(".prev")) {
+      document.querySelector(".prev").disabled = true;
+    }
     const $card = d.querySelectorAll(".container_card_pokemon");
     $card.forEach((e) => $sectionPokemon.removeChild(e));
     await Pokedex(e.target.getAttribute("data-next"));
     e.target.disabled = false;
+    if (document.querySelector(".prev")) {
+      document.querySelector(".prev").disabled = false;
+    }
   }
   if (e.target.matches(".prev")) {
-    e.target.disabled = true;
+    if (document.querySelector(".next")) {
+      document.querySelector(".next").disabled = true;
+    }
     const $card = d.querySelectorAll(".container_card_pokemon");
     $card.forEach((e) => $sectionPokemon.removeChild(e));
     await Pokedex(e.target.getAttribute("data-prev"));
     e.target.disabled = false;
+    if (document.querySelector(".next")) {
+      document.querySelector(".next").disabled = false;
+    }
   }
   if (e.target.matches(".exit *")) {
     const $modal = d.querySelector(".container_modal");
@@ -116,7 +87,7 @@ d.addEventListener("click", async (e) => {
     all.forEach((e, index) => {
       e.firstElementChild.textContent = json2.stats[index].stat.name;
       e.firstElementChild.nextElementSibling.style.width = `${
-        json2.stats[index]["base_stat"] / 2.5
+        json2.stats[index]["base_stat"] / 4
       }%`;
       e.lastElementChild.textContent = json2.stats[index]["base_stat"];
     });
@@ -137,7 +108,6 @@ w.addEventListener("keyup", (e) => {
   if (e.key === "Escape") {
     const $modal = d.querySelector(".container_modal");
     $modal.querySelectorAll(".progressive").forEach((e) => {
-      console.log(e);
       e.classList.remove("clip");
     });
     $modal.classList.remove("isActive");

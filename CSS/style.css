@@ -100,10 +100,22 @@ html {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  background-image: url("../assets/images/Pokedex.jpg");
+  background-image: url("../assets/images/Mundo_Pokemon.jpg");
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(50, 61, 72, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #323d48;
 }
 
 .hero {
@@ -158,28 +170,9 @@ main .container_pokemones {
   flex-grow: 2;
   height: auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  place-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
-}
-main .information-pokedex {
-  width: 35%;
-  height: 70vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  padding: 1rem;
-  border-radius: 2rem;
-  background-image: url("../assets/images/Mundo_Pokemon.jpg");
-  background-size: cover;
-  background-position: center center;
-  color: #f5f5f5;
-  font-weight: 700;
-  gap: 0.5rem;
-}
-main .information-pokedex img {
-  width: 4rem;
-  height: auto;
 }
 
 .loader {
@@ -211,7 +204,7 @@ main .information-pokedex img {
 }
 
 .container_card_pokemon {
-  min-height: 25vh;
+  max-height: 300px;
   width: 100%;
   border-radius: 1rem;
   background-image: url("../assets/images/Pokeball.png");
@@ -229,6 +222,7 @@ main .information-pokedex img {
   transform: translateY(-10px);
 }
 .container_card_pokemon .nombre {
+  width: 100%;
   text-transform: capitalize;
   font-size: clamp(1rem, 2vw, 2.5rem);
   background-color: rgba(50, 61, 72, 0.5);
@@ -313,7 +307,7 @@ main .information-pokedex img {
   text-transform: capitalize;
   background-color: rgba(34, 34, 34, 0.69);
   color: #f5f5f5;
-  width: 200px;
+  width: 80%;
   margin: 0 auto;
 }
 .modal .habilidades {
@@ -329,7 +323,7 @@ main .information-pokedex img {
 .modal .estadisticas {
   width: 100%;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-start;
   gap: 1.5rem;
   font-weight: 600;
@@ -471,13 +465,20 @@ main .information-pokedex img {
   padding: 1rem;
   text-align: center;
   border-radius: 100%;
+  cursor: pointer;
 }
 .fo .enlace:hover {
   animation: rotate 1s linear;
 }
-.fo .enlace img {
+.fo .enlace svg {
+  cursor: pointer;
+  fill: #f5f5f5;
   max-width: 100%;
   height: auto;
+  transition: fill 0.5s linear;
+}
+.fo .enlace svg:hover {
+  fill: #3d7c98;
 }
 
 @keyframes rotate {
@@ -485,13 +486,13 @@ main .information-pokedex img {
     transform: rotate(0deg);
   }
   50% {
-    transform: rotate(80deg);
+    transform: rotate(20deg);
   }
   75% {
     transform: rotate(0deg);
   }
   90% {
-    transform: rotate(-80deg);
+    transform: rotate(-20deg);
   }
   100% {
     transform: rotate(0deg);
@@ -503,10 +504,6 @@ main .information-pokedex img {
   }
   main .container_pokemones {
     min-height: 30vh;
-  }
-  main .information-pokedex {
-    width: 100%;
-    height: 40%;
   }
 }
 @media screen and (max-width: 460px) {

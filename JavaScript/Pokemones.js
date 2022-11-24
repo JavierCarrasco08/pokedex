@@ -13,7 +13,6 @@ export const Pokedex = async (pokemones) => {
     let res = await fetch(pokemones),
       json = await res.json();
     if (!res.ok) throw res;
-
     if (!d.querySelector(".next")) {
       const $next = d.createElement("button");
       $next.classList.add("next");
@@ -25,9 +24,10 @@ export const Pokedex = async (pokemones) => {
         .querySelector(".next")
         .setAttribute("data-next", json.next);
     }
-    if (!json.next && $containerButtons.querySelector(".nex")) {
-      let prev = $containerButtons.querySelector(".next");
-      $containerButtons.removeChild(prev);
+    if (!json.next && $containerButtons.querySelector(".next")) {
+      console.log("SI");
+      let next = $containerButtons.querySelector(".next");
+      $containerButtons.removeChild(next);
     }
     if (!json.previous && $containerButtons.querySelector(".prev")) {
       let prev = $containerButtons.querySelector(".prev");
@@ -47,36 +47,34 @@ export const Pokedex = async (pokemones) => {
     }
 
     const arrayPokemones = json.results;
-    let longitud = arrayPokemones.length;
     console.log(arrayPokemones);
-
     for (let pokemon of arrayPokemones) {
       let poke = await fetch(
         `https://pokeapi.co/api/v2/pokemon/${pokemon.name}`
       );
       let reslt = await poke.json();
-      console.log(reslt);
+      // console.log(reslt);
       if (!poke.ok)
         throw {
           err: "No se puedo",
         };
       // VAn despues
       $template.querySelector(".container_card_pokemon").dataset.id =
-        reslt.species.name;
-      $template.querySelector(".nombre").textContent = reslt.species.name;
+        reslt.name;
+      $template.querySelector(".nombre").textContent = reslt.name;
       $template
         .querySelector(".img_pokemon")
         .setAttribute(
           "src",
           reslt.sprites.other["official-artwork"]["front_default"] === null
-            ? `${reslt.sprites["front_default"]}`
+            ? `${reslt.sprites.versions["generation-v"]["black-white"]["front_default"]}`
             : `${reslt.sprites.other["official-artwork"]["front_default"]}`
         );
+      $template.querySelector(".img_pokemon").alt = reslt.name;
       let $clone = d.importNode($template, true);
       fragmen.appendChild($clone);
     }
     // let set = new Set();
-    console.log(set);
     $sectionPokemon.appendChild(fragmen);
 
     $loader.classList.remove("block");
