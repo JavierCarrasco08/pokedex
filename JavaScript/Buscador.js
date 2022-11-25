@@ -23,6 +23,7 @@ export const buscador = async (buscador) => {
 
     console.log(res);
     if ($containerButtons.children) {
+      console.log("SI");
       let sons = Array.from($containerButtons.children);
       sons.forEach((e) => $containerButtons.removeChild(e));
     }
@@ -43,6 +44,10 @@ export const buscador = async (buscador) => {
   } catch (err) {
     const $loader = d.querySelector(".loader");
     $loader.classList.remove("block");
+    if ($containerButtons.children) {
+      let sons = Array.from($containerButtons.children);
+      sons.forEach((e) => $containerButtons.removeChild(e));
+    }
     $template
       .querySelector(".img_pokemon")
       .setAttribute("src", "assets/images/exit.svg");

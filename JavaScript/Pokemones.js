@@ -6,8 +6,10 @@ export const Pokedex = async (pokemones) => {
     $containerButtons = d.querySelector(".buttons"),
     fragmen = d.createDocumentFragment();
   try {
+    // Loader
     const $loader = d.querySelector(".loader");
     $loader.classList.add("block");
+    // Respuesta
     let res = await fetch(pokemones),
       json = await res.json();
     if (!res.ok) throw res;
@@ -35,6 +37,7 @@ export const Pokedex = async (pokemones) => {
       $prev.classList.add("prev");
       $prev.textContent = "Previous";
       $prev.setAttribute("data-prev", json.previous);
+      $prev.disabled = true;
       $containerButtons.insertAdjacentElement("afterbegin", $prev);
     }
     if ($containerButtons.querySelector(".prev")) {
