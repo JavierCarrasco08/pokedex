@@ -25,11 +25,20 @@ d.addEventListener("submit", (e) => {
 d.addEventListener("click", async (e) => {
   if (e.target.matches(".next")) {
     e.target.disabled = true;
+    if ($sectionPokemon.children.length > 20) {
+      const $card = d.querySelectorAll(".container_card_pokemon");
+      $card.forEach((e, index) => {
+        $sectionPokemon.removeChild(e);
+        if (index === 20) {
+          return true;
+        }
+      });
+    } else {
+      $sectionPokemon.removeChild(e);
+    }
     if (document.querySelector(".prev")) {
       document.querySelector(".prev").disabled = true;
     }
-    const $card = d.querySelectorAll(".container_card_pokemon");
-    $card.forEach((e) => $sectionPokemon.removeChild(e));
     await Pokedex(e.target.getAttribute("data-next"));
     e.target.disabled = false;
     if (document.querySelector(".prev")) {
@@ -40,8 +49,25 @@ d.addEventListener("click", async (e) => {
     if (document.querySelector(".next")) {
       document.querySelector(".next").disabled = true;
     }
-    const $card = d.querySelectorAll(".container_card_pokemon");
-    $card.forEach((e) => $sectionPokemon.removeChild(e));
+    console.log($sectionPokemon.children.length);
+    if ($sectionPokemon.children.length === 20) {
+      const $card = d.querySelectorAll(".container_card_pokemon");
+      $card.forEach((e, index) => {
+        console.log(index);
+        $sectionPokemon.removeChild(e);
+        if (index === 20) {
+          return true;
+        }
+      });
+    } else {
+      const $card = d.querySelectorAll(".container_card_pokemon");
+      $card.forEach((e, index) => {
+        $sectionPokemon.removeChild(e);
+        if (index === 20) {
+          return true;
+        }
+      });
+    }
     await Pokedex(e.target.getAttribute("data-prev"));
     e.target.disabled = false;
     if (document.querySelector(".next")) {

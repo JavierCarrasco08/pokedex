@@ -6,6 +6,7 @@ export const buscador = async (buscador) => {
     $sectionPokemon = d.querySelector(".container_pokemones"),
     $containerButtons = d.querySelector(".buttons"),
     fragmen = d.createDocumentFragment();
+
   try {
     const $loader = d.querySelector(".loader");
     $loader.classList.add("block");
@@ -22,7 +23,6 @@ export const buscador = async (buscador) => {
 
     console.log(res);
     if ($containerButtons.children) {
-      console.log("SI");
       let sons = Array.from($containerButtons.children);
       sons.forEach((e) => $containerButtons.removeChild(e));
     }

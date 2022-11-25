@@ -5,11 +5,9 @@ export const Pokedex = async (pokemones) => {
     $sectionPokemon = d.querySelector(".container_pokemones"),
     $containerButtons = d.querySelector(".buttons"),
     fragmen = d.createDocumentFragment();
-  let set;
   try {
     const $loader = d.querySelector(".loader");
     $loader.classList.add("block");
-
     let res = await fetch(pokemones),
       json = await res.json();
     if (!res.ok) throw res;
@@ -25,7 +23,6 @@ export const Pokedex = async (pokemones) => {
         .setAttribute("data-next", json.next);
     }
     if (!json.next && $containerButtons.querySelector(".next")) {
-      console.log("SI");
       let next = $containerButtons.querySelector(".next");
       $containerButtons.removeChild(next);
     }
@@ -47,7 +44,6 @@ export const Pokedex = async (pokemones) => {
     }
 
     const arrayPokemones = json.results;
-    console.log(arrayPokemones);
     for (let pokemon of arrayPokemones) {
       let poke = await fetch(
         `https://pokeapi.co/api/v2/pokemon/${pokemon.name}`

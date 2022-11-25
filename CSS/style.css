@@ -158,12 +158,10 @@ main {
   width: 95%;
   height: auto;
   flex-grow: 2;
+  margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: 1rem;
+  margin-bottom: 2rem;
 }
 main .container_pokemones {
   position: relative;
@@ -172,7 +170,7 @@ main .container_pokemones {
   display: grid;
   place-content: center;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .loader {
@@ -224,7 +222,7 @@ main .container_pokemones {
 .container_card_pokemon .nombre {
   width: 100%;
   text-transform: capitalize;
-  font-size: clamp(1rem, 2vw, 2.5rem);
+  font-size: clamp(1.25rem, 2vw, 2.5rem);
   background-color: rgba(50, 61, 72, 0.5);
   border-radius: 1rem;
   box-shadow: 0px 0px 10px 5px rgba(50, 61, 72, 0.5);
