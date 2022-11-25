@@ -91,12 +91,15 @@ body {
   font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
+  background-color: #323d48;
 }
 
 *,
 *::before,
 *::after {
   margin: 0;
+  padding: 0;
 }
 
 .Container {
@@ -116,15 +119,19 @@ body {
 }
 
 ::-webkit-scrollbar {
+  margin: 0;
+  padding: 0;
   width: 15px;
 }
 
 ::-webkit-scrollbar-track {
+  margin: 0;
+  padding: 0;
   background-color: rgba(50, 61, 72, 0.5);
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #323d48;
+  background-color: #f5f5f5;
 }
 
 .hero {
@@ -140,6 +147,7 @@ body {
 .hero .logotipo {
   width: 4rem;
   height: auto;
+  margin-left: 1rem;
 }
 .hero .logo {
   max-width: 100%;
