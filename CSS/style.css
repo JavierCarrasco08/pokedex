@@ -266,6 +266,7 @@ main .container_pokemones {
   right: 0;
   background-image: linear-gradient(rgba(50, 61, 72, 0.5), #3d7c98);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   opacity: 0;
@@ -283,13 +284,14 @@ main .container_pokemones {
 }
 
 .modal {
-  min-height: 55vh;
+  min-height: 40vh;
   width: 80vw;
   min-width: 300px;
   max-width: 700px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
   text-align: center;
   background-image: url("../assets/images/Pokeball.png"), linear-gradient(#f5f5f5, #f5f5f5);
   background-position: center center;
@@ -323,11 +325,11 @@ main .container_pokemones {
   font-size: 1.5rem;
 }
 .modal .type span {
-  padding: 0.5rem 1.5rem;
+  padding: 0.25rem 1.5rem;
   font-weight: 600;
 }
 .modal .nombre {
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 2vw, 2rem);
   font-weight: 600;
   text-transform: capitalize;
   background-color: rgba(34, 34, 34, 0.69);
@@ -343,7 +345,7 @@ main .container_pokemones {
   gap: 0.25rem;
   background-color: rgba(50, 61, 72, 0.5);
   border-radius: 1rem;
-  margin: 1rem 0;
+  margin: 0.5rem 0;
 }
 .modal .estadisticas {
   width: 100%;
@@ -440,15 +442,12 @@ main .container_pokemones {
 }
 
 .exit {
-  position: absolute;
-  z-index: 10;
-  top: 1vh;
-  right: 5px;
+  align-self: flex-end;
   cursor: pointer;
 }
 .exit img {
   width: 10vw;
-  max-width: 100%;
+  max-width: 70px;
   height: auto;
 }
 
