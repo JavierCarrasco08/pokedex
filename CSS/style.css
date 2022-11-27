@@ -185,8 +185,8 @@ main .container_pokemones {
   flex-grow: 2;
   height: auto;
   display: grid;
-  place-content: center;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  place-content: center;
   gap: 2rem;
 }
 
@@ -196,14 +196,15 @@ main .container_pokemones {
 }
 
 .loader {
-  position: absolute;
-  left: 40%;
-  top: 30%;
   width: 20%;
   min-width: 100px;
   height: auto;
   height: auto;
   display: none;
+  margin-top: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
 }
 .loader .load {
   max-width: 100%;
