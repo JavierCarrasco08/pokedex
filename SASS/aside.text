@@ -1,0 +1,51 @@
+        <!-- <aside class="information-pokedex">
+          <h2 class="information_title">Pokedex</h2>
+          <p class="information_paragrah">
+            Pokédex6 (ポケモン図鑑 Pokémon Zukan en japonés, o Pokémon Dexter,
+            también llamado Indexador Pokémon), en el mundo Pokémon es una
+            enciclopedia virtual portátil de alta tecnología que los
+            entrenadores Pokémon llevan consigo para registrar las fichas de
+            todas las diversas especies Pokémon con las que se encuentran
+            durante su viaje como entrenadores. En general, cuando se cumplen
+            ciertos requisitos, la capacidad de la Pokédex se puede aumentar
+            permitiendo almacenar datos de otros Pokémon, que no son comunes,
+            como los legendarios y Pokémon que no son originarios de esa región.
+            A dicha Pokédex "ampliada" se la conoce como Pokédex Nacional. Según
+            el episodio EP068 de la primera temporada en el anime, fue creada
+            por el profesor Westwood V; sin embargo, en los videojuegos, el
+            creador es el profesor Oak. Este contenido proviene de wikidex.net,
+            y debe darse atribución a sus autores, tal como especifica la
+            licencia. Se prohíbe su uso a PlagioDex (el wiki de FANDOOM), por
+            copiar reiteradamente sin dar atribución
+          </p>
+          <figure class="logotipo">
+            <img
+              src="assets/images/logo.png"
+              alt="Logotipo Pokedex"
+              class="logo" />
+          </figure>
+        </aside> -->
+
+        Estilos
+
+          //  Information
+  .information-pokedex {
+    width: 35%;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 2rem;
+    background-image: url("../assets/images/Mundo_Pokemon.jpg");
+    background-size: cover;
+    background-position: center center;
+    color: $white-azul;
+    font-weight: 700;
+    gap: 0.5rem;
+    img {
+      width: 4rem;
+      height: auto;
+    }
+  }

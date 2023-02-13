@@ -1,0 +1,35 @@
+@media screen and (max-width: 995px) {
+  main {
+    flex-direction: column-reverse;
+  }
+  .information-pokedex {
+    width: 100%;
+    height: 40%;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .hero {
+    flex-direction: column;
+    height: auto;
+  }
+  #buscador {
+    width: 100%;
+  }
+  .fo {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+@media screen and (max-width: 700px) {
+  .modal {
+    width: 80vw;
+  }
+}
+.buttons {
+  display: flex;
+  gap: 0.5rem;
+}

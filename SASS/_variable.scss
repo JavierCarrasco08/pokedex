@@ -1,0 +1,77 @@
+$color-azul-btn: #3d7c98;
+$color-azul-claro: #73b0cd;
+$color-azul-blanco: #a8dff1;
+$white-azul: #f5f5f5;
+$hover-p: #323d48;
+$fixed-transparencia: rgb(50, 61, 72, 0.5);
+//compoenente de boton
+%btnPokedex {
+  font-family: "Poppins", sans-serif;
+  padding: 1rem 1.5rem;
+  background-color: $color-azul-btn;
+  border: none;
+  outline: none;
+  color: $white-azul;
+  font-weight: 600;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: background-color 0.5s ease-in-out;
+
+  &:hover {
+    background-color: $hover-p;
+  }
+}
+.steel {
+  background-color: rgba(211, 211, 211, 0.7);
+}
+.water {
+  background-color: rgba(65, 105, 225, 0.7);
+}
+.fire {
+  background-color: rgba(220, 20, 60, 0.7);
+}
+.grass {
+  background-color: rgba(0, 255, 0, 0.7);
+}
+.poison {
+  background-color: rgba(147, 112, 216, 0.7);
+}
+.bug {
+  background-color: rgba(153, 205, 50, 0.6);
+}
+.ice {
+  background-color: rgb(127, 255, 212, 0.7);
+}
+.dragon {
+  background-color: rgb(123, 104, 238, 0.7);
+}
+.electric {
+  background-color: rgba(255, 255, 1, 0.6);
+}
+.ghost {
+  background-color: rgba(128, 0, 128, 0.7);
+}
+.fairy {
+  background-color: rgb(255, 136, 238, 0.7);
+}
+.fighting {
+  background-color: rgba(178, 34, 34, 0.7);
+}
+.normal {
+  background-color: rgba(230, 230, 250, 0.7);
+}
+.psychic {
+  background-color: rgba(238, 130, 238, 0.6);
+}
+.rock {
+  background-color: rgba(205, 134, 63, 0.7);
+}
+.dark {
+  background-color: rgba(112, 128, 144, 0.7);
+}
+.ground {
+  background-color: rgba(222, 184, 135, 0.7);
+}
+.flying {
+  background-color: rgb(150, 150, 150, 0.7);
+}
